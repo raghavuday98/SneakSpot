@@ -1,0 +1,395 @@
+@import url('https://fonts.googleapis.com/css2?family=Saira+Stencil+One&display=swap');
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    height: 100%;
+    scrollbar-width: none;
+}
+
+body {
+    overflow-x: hidden;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+    line-height: 1.5;
+    background-color: #f9f9f9;
+    color: #222;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.navbar {
+    height: 4vw;
+    width: 100%;
+    background-color: #f8f8f8;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0vw 2vw;
+    border-bottom: 0.15vw solid rgb(231, 233, 233);
+    flex-wrap: wrap;
+    gap: 1rem;
+    position: fixed;
+    z-index: 100;
+}
+
+.navlogo {
+    height: 100%;
+    width: 10vw;
+    background-image: url(SS\ logo.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+
+}
+
+.navTag {
+    height: 100%;
+    width: 30vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    left: -10vw;
+
+}
+
+.navTag a {
+    text-decoration: none;
+    color: black;
+    font-weight: 500;
+    font-size: 1vw;
+
+}
+
+.searchbar {
+    height: 2.5vw;
+    width: 15vw;
+    background-color: rgb(231, 233, 233);
+    display: flex;
+    align-items: center;
+    border-radius: 0.3vw;
+    padding: 0vw 1vw;
+    position: relative;
+    left: 10vw;
+}
+
+.searchbar i {
+    font-size: 1.2vw;
+    color: #555;
+}
+
+.searchbar input {
+    height: 70%;
+    width: 90%;
+    background-color: rgb(231, 233, 233);
+    border: none;
+    outline: none;
+    font-size: 1vw;
+    flex: 1;
+    padding-left: 1vw;
+}
+
+.navWishlist,
+.navCart {
+    height: 2.5vw;
+    width: 2.5vw;
+    background-color: rgb(231, 233, 233);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10%;
+}
+
+.navWishlist {
+    position: relative;
+    left: 5vw;
+}
+
+.navCart {
+    position: relative;
+    right: 3vw;
+}
+
+.navWishlist,
+.navCart i {
+    text-decoration: none;
+    font-size: 1.2vw;
+    color: #555;
+}
+
+.navTag a.active {
+    text-decoration: underline;
+    text-underline-offset: 0.4vw;
+    text-decoration-thickness: 2px;
+    color: #111;
+}
+
+.new-arrival {
+    padding-left: 3vw;
+
+}
+
+.add-to-bag{
+    height: 2.5vw;
+    width: 6vw;
+    position: relative;
+    top: -10%;
+    left: 55%;
+    border-radius: 2vw;
+}
+
+.menNavTag {
+    padding-left: 3vw;
+}
+
+.womenNavTag {
+    padding-left: 3vw;
+}
+
+.kidsNavTag {
+    padding-left: 3vw;
+}
+
+.saleNavTag {
+
+    padding-left: 3vw;
+}
+
+
+
+.new-arrival h2 {
+    font-size: 2vw;
+    margin-bottom: 2vw;
+}
+
+.arrival-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 2vw;
+    justify-items: center;
+    padding-bottom: 3vw;
+}
+
+.arrival-card {
+    background-color: #fff;
+    border-radius: 10%;
+    overflow: hidden;
+    text-align: left;
+    width: 100%;
+    max-width: 24vw;
+    transition: all 0.3s ease;
+}
+
+.arrival-card img {
+    width: 100%;
+    border-radius: 10px;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+}
+
+.arrival-card h4 {
+    font-size: 1rem;
+    margin: 1rem 0 0.2rem 0.5rem;
+    color: #111;
+}
+
+.arrival-card p {
+    font-size: 0.9rem;
+    color: #666;
+    margin: 0 0 1rem 0.5rem;
+}
+.card-buttons {
+    display: flex;
+    gap: 0.5rem;
+    margin: 0.5rem;
+}
+
+.card-buttons button {
+    flex: 1;
+    padding: 0.5rem;
+    border: none;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.wishlist-btn {
+    background-color: #fff;
+    color: #ff4d6d;
+    border: 1px solid #ff4d6d;
+}
+
+.wishlist-btn:hover {
+    background-color: #ff4d6d;
+    color: white;
+}
+
+.bag-btn {
+    background-color: #222;
+    color: #fff;
+}
+
+.bag-btn:hover {
+    background-color: #000;
+}
+
+.heroSection {
+    position: relative;
+    width: 100%;
+    height: 50vw;
+    background-color: white;
+    overflow: hidden;
+    border-bottom: 0.15vw solid rgb(231, 233, 233);
+
+}
+
+
+.mainContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.mainContent h1 {
+    font-size: 5vw;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 1vw;
+    font-family: "Saira Stencil One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    transition: all 0.6s ease-in-out;
+    position: relative;
+    top: -10vw;
+}
+
+.mainContent img {
+    height: 40vw;
+    width: 50vw;
+    object-fit: contain;
+    transition: all 0.6s ease-in-out;
+}
+
+.arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 5vw;
+    width: 5vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.arrow.left {
+    left: 2vw;
+}
+
+.arrow.right {
+    right: 2vw;
+}
+
+.arrow img {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+}
+
+
+.categories,
+.featured {
+    padding: 2rem;
+}
+
+h2 {
+    margin-bottom: 1rem;
+}
+
+.category-grid,
+.product-grid {
+    display: flex;
+    gap: 1.5rem;
+    display: flex;
+    overflow-x: auto;
+    white-space: nowrap;
+    gap: 1rem;
+    scroll-behavior: smooth;
+}
+
+.category-grid::-webkit-scrollbar {
+    height: 8px
+}
+
+.category,
+.product {
+    flex: 0 0 auto;
+    width: 20vw;
+    min-width: 200px;
+    text-align: center;
+}
+
+.product {
+    padding: 0vw 1.5vw;
+}
+
+.category img,
+.product img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+footer {
+    padding: 2rem;
+    text-align: center;
+    background: #fff;
+    border-top: 1px solid #ddd;
+}
+
+.footer-links {
+    margin-bottom: 1rem;
+}
+
+.footer-links a {
+    margin: 0 1rem;
+    text-decoration: none;
+    color: #666;
+}
+
+.card img,
+.category img,
+.product img {
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    width: 100%;
+    height: auto;
+
+    border-radius: 10px;
+    display: block;
+}
+
+.navbar .icons {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.trendingNow {
+    padding: 2rem;
+}
