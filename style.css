@@ -67,7 +67,7 @@ img {
     text-decoration: none;
     color: black;
     font-weight: 500;
-    font-size: 1vw;
+    font-size: 1rem;
 
 }
 
@@ -110,6 +110,17 @@ img {
     border-radius: 10%;
 }
 
+.navWishlist.active,
+.navCart.active {
+    background-color: black;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.navWishlist.active i,
+.navCart.active i {
+    color: white;
+}
+
 .navWishlist {
     position: relative;
     left: 5vw;
@@ -134,7 +145,11 @@ img {
     color: #111;
 }
 
-.new-arrival,.menNavTag,.womenNavTag,.kidsNavTag,.saleNavTag {
+.new-arrival,
+.menNavTag,
+.womenNavTag,
+.kidsNavTag,
+.saleNavTag {
     padding-left: 3vw;
     background-color: rgb(231, 233, 233);
 
@@ -150,7 +165,11 @@ img {
 }
 
 /*New Arrival Section Style */
-.new-arrival h2,.menNavTag h2,.womenNavTag h2,.kidsNavTag h2,.saleNavTag h2 {
+.new-arrival h2,
+.menNavTag h2,
+.womenNavTag h2,
+.kidsNavTag h2,
+.saleNavTag h2 {
     font-size: 2vw;
     padding: 3vw 0vw 0vw 2vw;
 
@@ -181,6 +200,7 @@ img {
     border-radius: 10px;
     aspect-ratio: 1/1;
     object-fit: contain;
+    padding-top: 0.5rem;
 }
 
 .section-card h4 {
@@ -385,53 +405,268 @@ footer {
 .trendingNow {
     padding: 2rem;
 }
+
 .section-card p {
-  font-size: 0.9rem;
-  color: #666;
-  margin: 0 0 1rem 0.5rem;
-  display: flex;
-  gap: 0.5rem;
-  align-items: center;
-  flex-wrap: wrap;
+    font-size: 0.9rem;
+    color: #666;
+    margin: 0 0 1rem 0.5rem;
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    flex-wrap: wrap;
 }
 
 .section-card p del {
-  color: gray;
-  font-size: 0.9rem;
+    color: gray;
+    font-size: 0.9rem;
 }
 
 .section-card p strong {
-  color: red;
-  font-weight: bold;
-  font-size: 1rem;
+    color: red;
+    font-weight: bold;
+    font-size: 1rem;
 }
 
 .discount-badge {
-  background-color: #ff4d6d;
-  color: white;
-  font-size: 0.75rem;
-  padding: 0.2rem 0.4rem;
-  border-radius: 0.3rem;
+    background-color: #ff4d6d;
+    color: white;
+    font-size: 0.75rem;
+    padding: 0.2rem 0.4rem;
+    border-radius: 0.3rem;
+}
+
+@keyframes sectionFadeSlide {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.home,
+.new-arrival,
+.menNavTag,
+.womenNavTag,
+.kidsNavTag,
+.saleNavTag {
+    animation: sectionFadeSlide 0.5s ease-out;
+    animation-fill-mode: both;
 }
 
 .sale-header {
-  text-align: center;
-  margin: 4vw 0 2vw;
+    text-align: center;
+    margin: 4vw 0 2vw;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 1s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .sale-main-title {
-  font-size: 3vw;
-  font-weight: 800;
-  color: #111;
-  letter-spacing: -0.2vw;
-  font-family: 'Segoe UI', sans-serif;
+    font-size: 3vw;
+    font-weight: 800;
+    color: #111;
+    letter-spacing: -0.2vw;
+    font-family: 'Segoe UI', sans-serif;
 }
 
 .sale-subtitle {
-  font-size: 1.2vw;
-  color: #666;
-  font-weight: 500;
-  margin-top: 0.5vw;
-  font-family: 'Poppins', sans-serif;
+    font-size: 1.2vw;
+    color: #666;
+    font-weight: 500;
+    margin-top: 0.5vw;
+    font-family: 'Poppins', sans-serif;
 }
 
+/* cart css*/
+.cart-container {
+    max-width: 700px;
+    margin: 2rem auto;
+    padding: 1.5rem;
+    font-family: 'Segoe UI', sans-serif;
+    color: #111;
+}
+
+.cart-container h1 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.cart-subtitle {
+    color: #666;
+    margin-bottom: 2rem;
+}
+
+.cart-items {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 1rem;
+}
+
+.cart-item img {
+    width: 70px;
+    height: 70px;
+    border-radius: 10px;
+    object-fit: cover;
+    background-color: #f0f0f0;
+}
+
+.item-details h3 {
+    margin: 0;
+    font-size: 1rem;
+}
+
+.item-details p {
+    margin: 0.2rem 0;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.item-price {
+    margin-left: auto;
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+.cart-summary {
+    margin-top: 2rem;
+}
+
+.cart-summary h2 {
+    margin-bottom: 1rem;
+}
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    margin: 0.5rem 0;
+    font-size: 1rem;
+    color: #444;
+}
+
+.summary-row.total {
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.checkout-btn {
+    margin-top: 1.5rem;
+    width: 100%;
+    padding: 0.9rem;
+    background-color: #111;
+    color: #fff;
+    font-size: 1rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.checkout-btn:hover {
+    background-color: #000;
+}
+
+/*Wishlist*/
+.wishlist-container {
+    max-width: 700px;
+    margin: 2rem auto;
+    padding: 1.5rem;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.wishlist-container h1 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+}
+
+.wishlist-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #eee;
+}
+
+.item-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.item-info img {
+    width: 60px;
+    height: 60px;
+    border-radius: 10px;
+    object-fit: cover;
+    background-color: #f2f2f2;
+}
+
+.item-info h3 {
+    margin: 0;
+    font-size: 1rem;
+}
+
+.item-info p {
+    margin: 0.3rem 0 0;
+    color: #555;
+    font-size: 0.9rem;
+}
+
+/* ✅ MODIFIED: Buttons in a line */
+.item-actions {
+    display: flex;
+    gap: 0.6rem;
+    align-items: center;
+}
+
+/* Add to Bag Button */
+.add-btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+    border-radius: 6px;
+    cursor: pointer;
+    border: none;
+    background-color: #111;
+    color: white;
+    transition: background 0.3s ease;
+}
+
+.add-btn:hover {
+    background-color: #000;
+}
+
+/* ✅ MODIFIED: Soft red Remove Button */
+.remove-btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+    border-radius: 6px;
+    cursor: pointer;
+    border: none;
+    background-color: #ffe5e5;
+    color: #cc0000;
+    font-weight: 500;
+    transition: background 0.3s ease;
+}
+
+.remove-btn:hover {
+    background-color: #ffcccc;
+}

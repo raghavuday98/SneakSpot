@@ -11,6 +11,11 @@ const kidsBtn = document.getElementById("nav-kids");
 const kidsSection = document.getElementById("kidsSection");
 const saleBtn = document.getElementById("nav-sale");
 const saleSection = document.getElementById("saleSection");
+const cartBtn = document.querySelector(".navCart");
+const cartSection = document.getElementById("cartSection");
+const wishlistBtn = document.querySelector(".navWishlist");
+const wishlistSection = document.getElementById("wishlistSection");
+
 
 function showSection(sectionToShow) {
   homeSection.style.display = "none";
@@ -19,6 +24,8 @@ function showSection(sectionToShow) {
   womenSection.style.display = "none";
   kidsSection.style.display = "none";
   saleSection.style.display = "none";
+  wishlistSection.style.display = "none";
+  cartSection.style.display = "none";
 
   sectionToShow.style.display = "block";
 }
@@ -29,7 +36,7 @@ function handleNavClick(btn, section) {
     showSection(section);
     localStorage.setItem("activeSection", section.id);
 
-    document.querySelectorAll(".navTag a").forEach(link =>
+    document.querySelectorAll(".navTag a, .navCart, .navWishlist").forEach(link =>
       link.classList.remove("active")
     );
 
@@ -43,6 +50,8 @@ handleNavClick(menBtn, menSection);
 handleNavClick(womenBtn, womenSection);
 handleNavClick(kidsBtn, kidsSection);
 handleNavClick(saleBtn, saleSection);
+handleNavClick(cartBtn, cartSection);
+handleNavClick(wishlistBtn, wishlistSection);
 
 window.addEventListener("DOMContentLoaded", () => {
   generateArrivalCard();
@@ -56,20 +65,24 @@ window.addEventListener("DOMContentLoaded", () => {
 
   showSection(section);
 
-  // Remove active class from all nav links
-  document.querySelectorAll(".navTag a").forEach(link => {
+  // Remove all active classes first
+  document.querySelectorAll(".navTag a, .navCart, .navWishlist").forEach(link => {
     link.classList.remove("active");
   });
 
-  // Set the correct nav link as active
-  if (savedSectionId) {
-    const activeBtnId = `nav-${savedSectionId.replace("Section", "").toLowerCase()}`;
-    const activeBtn = document.getElementById(activeBtnId);
-    if (activeBtn) activeBtn.classList.add("active");
-  } else {
-    homeBtn.classList.add("active"); // default to Home
+  // Re-add active class to correct nav item
+  switch (savedSectionId) {
+    case "newArrivalSection": newArrivalBtn.classList.add("active"); break;
+    case "menSection": menBtn.classList.add("active"); break;
+    case "womenSection": womenBtn.classList.add("active"); break;
+    case "kidsSection": kidsBtn.classList.add("active"); break;
+    case "saleSection": saleBtn.classList.add("active"); break;
+    case "cartSection": cartBtn.classList.add("active"); break;
+    case "wishlistSection": wishlistBtn.classList.add("active"); break;
+    default: homeBtn.classList.add("active");
   }
 });
+
 
 
 //hero section javaScript
@@ -136,17 +149,26 @@ startAutoSlide();
 
 //New Arrival JavaScript
 const newArrivalImages = [
-  { src: "Hero Section images/hero nike.png", name: "NIKE AIR JORDAN 1", price: "₹X,XXX" },
-  { src: "Hero Section images/hero puma.png", name: "PUMA SOFTRIDE ENZO EVO", price: "₹X,XXX" },
-  { src: "Hero Section images/hero adidas.png", name: "ADIDAS SAMBA OG", price: "₹X,XXX" },
-  { src: "Hero Section images/hero campus.png", name: "CAMPUS OG-38", price: "₹X,XXX" },
-  { src: "Hero Section images/hero redtape.png", name: "REDTAPE ETPU LIFESTYLE", price: "₹X,XXX" },
-  { src: "Hero Section images/hero levis.png", name: "LEVI'S COLORBLOCK SNEAKERS", price: "₹X,XXX" }
+  { src: "New Arrival Images/Froh Feet.jpg", name: "Froh Feet", price: "₹2499" },
+  { src: "New Arrival Images/U.S. Polo Assn.jpg", name: "U.S. Polo Assn", price: "₹2349" },
+  { src: "New Arrival Images/Server Boat Shoes.jpg", name: "SERVER LACE-UPS BOAT ", price: "₹3599" },
+  { src: "New Arrival Images/Brekins.jpg", name: "BERKINS Casual Regular Boots", price: "₹2449" },
+  { src: "New Arrival Images/HRX Unisex Back To School Shoes.jpg", name: "HRX Unisex Back To School Shoes", price: "₹1199" },
+  { src: "New Arrival Images/Badminton Smash Sprint.jpg", name: "PUMA Badminton Smash Sprint ", price: "₹2499" },
+  { src: "New Arrival Images/Red Tape Women Mesh Walking Shoes.jpg", name: "Red Tape Women Mesh Walking Shoes", price: "₹2369" },
+  { src: "New Arrival Images/Bata Formal Oxfords.jpg", name: "Bata Formal Oxfords", price: "₹1277" },
+  { src: "New Arrival Images/HRX Men Mesh Running Shoes.jpg", name: "HRX Men Mesh Running Shoes", price: "₹999" },
+  { src: "New Arrival Images/Red Tape Men Textured Lace-Up ETPU Walking Shoes.jpg", name: "Red Tape Men ETPU Walking Shoes", price: "₹2519" },
+  { src: "New Arrival Images/asian Men Round Toe Sneakers.jpg", name: "ASIAN Men Round Toe Sneakers", price: "₹899" },
+  { src: "New Arrival Images/Red Tape Men Round Toe Memory Foam.jpg", name: "Red Tape Men Round Toe Memory Foam", price: "₹7199" },
+
 ];
 
 const newArrivalGrid = document.getElementById("newArrivalGrid");
 
 function generateArrivalCard() {
+  const container = document.getElementById("newArrivalGrid");
+  container.innerHTML = ""; // ✅ This clears old cards
 
   newArrivalImages.forEach(item => {
     const card = document.createElement("div");
@@ -170,17 +192,27 @@ window.addEventListener("DOMContentLoaded", generateArrivalCard);
 
 // men section
 const menSectionImages = [
-  { src: "Hero Section images/hero nike.png", name: "NIKE AIR JORDAN 1", price: "₹X,XXX" },
-  { src: "Hero Section images/hero puma.png", name: "PUMA SOFTRIDE ENZO EVO", price: "₹X,XXX" },
-  { src: "Hero Section images/hero adidas.png", name: "ADIDAS SAMBA OG", price: "₹X,XXX" },
-  { src: "Hero Section images/hero campus.png", name: "CAMPUS OG-38", price: "₹X,XXX" },
-  { src: "Hero Section images/hero redtape.png", name: "REDTAPE ETPU LIFESTYLE", price: "₹X,XXX" },
-  { src: "Hero Section images/hero levis.png", name: "LEVI'S COLORBLOCK SNEAKERS", price: "₹X,XXX" }
+  { src: "Men Section Images/HRX Unisex Mesh Running Shoes.jpg", name: "HRX Unisex Mesh Running Shoes", price: "₹1149" },
+  { src: "Men Section Images/Red Tape Men Sneakers.jpg", name: "Red Tape Men Sneakers", price: "₹1899" },
+  { src: "Men Section Images/NIKE Men Court Vision Low Sneakers.jpg", name: "NIKE Men Court Vision Low Sneakers", price: "₹5699" },
+  { src: "Men Section Images/PUMA Smashic Soft Suede Sneakers.jpg", name: "PUMA Smashic Soft Suede Sneakers", price: "₹1999" },
+  { src: "Men Section Images/USPA CLARKIN 4.0 Men Canvas Sneakers.jpg", name: "USPA CLARKIN 4.0 Men Canvas Sneakers", price: "₹1699" },
+  { src: "Men Section Images/Red Tape Round Toe Memory Sneakers.jpg", name: "Red Tape Round Toe Memory Sneakers", price: "₹2199" },
+  { src: "Men Section Images/ADIDAS Men Samba OG Leather Sneakers.jpg", name: "ADIDAS Men Samba OG Leather Sneakers", price: "₹10999" },
+  { src: "Men Section Images/NIKE Men Air Max Fusion Sneakers.jpg", name: "NIKE Men Air Max Fusion Sneakers", price: "₹5999" },
+  { src: "Men Section Images/Campus Men Lace-Up Running Shoes.jpg", name: "Campus Men Lace-Up Running Shoes", price: "₹1249" },
+  { src: "Men Section Images/USPA Men Signature Tape PU Loafers.jpg", name: "USPA Men Signature Tape PU Loafers", price: "₹1959" },
+  { src: "Men Section Images/Campus Men Colourblocked PU Sneakers.jpg", name: "Campus Men Colourblocked PU Sneakers", price: "₹1499" },
+  { src: "Men Section Images/PUMA Court Shatter.jpg", name: "PUMA Court Shatter", price: "₹3499" },
+
+
 ];
 
 const mansectionGrid = document.getElementById("menSectionGrid");
 
 function menSectionCard() {
+  const container = document.getElementById("menSectionGrid");
+  container.innerHTML = "";
 
   menSectionImages.forEach(item => {
     const card = document.createElement("div");
@@ -204,17 +236,25 @@ window.addEventListener("DOMContentLoaded", menSectionCard);
 
 //women Section JS
 const womenSectionImages = [
-  { src: "Hero Section images/hero nike.png", name: "NIKE AIR JORDAN 1", price: "₹X,XXX" },
-  { src: "Hero Section images/hero puma.png", name: "PUMA SOFTRIDE ENZO EVO", price: "₹X,XXX" },
-  { src: "Hero Section images/hero adidas.png", name: "ADIDAS SAMBA OG", price: "₹X,XXX" },
-  { src: "Hero Section images/hero campus.png", name: "CAMPUS OG-38", price: "₹X,XXX" },
-  { src: "Hero Section images/hero redtape.png", name: "REDTAPE ETPU LIFESTYLE", price: "₹X,XXX" },
-  { src: "Hero Section images/hero levis.png", name: "LEVI'S COLORBLOCK SNEAKERS", price: "₹X,XXX" }
+  { src: "Women Section Images/PUMA Court Classic Lux.jpg", name: "PUMA Court Classic Lux", price: "₹3299" },
+  { src: "Women Section Images/BARKER Bonnie Navy Grain.jpg", name: "BARKER Bonnie Navy Grain", price: "₹27600" },
+  { src: "Women Section Images/NIKE Run Defy.jpg", name: "NIKE Run Defy ", price: "₹3995" },
+  { src: "Women Section Images/Adidas Unisex Superstar.jpg", name: "Adidas Unisex Superstar", price: "₹9599" },
+  { src: "Women Section Images/The Souled Store Urban Blaze.jpg", name: "The Souled Store Urban Blaze", price: "₹2618" },
+  { src: "Women Section Images/Red Tape Women Sneakers.jpg", name: "Red Tape Women Sneakers", price: "₹1549" },
+  { src: "Women Section Images/NIKE Air Force 1 '07.jpg", name: "NIKE Air Force 1 '07", price: "₹9695" },
+  { src: "Women Section Images/PUMA X-Ray 2 Square.jpg", name: "PUMA X-Ray 2 Square", price: "₹3999" },
+  { src: "Women Section Images/JodyHub Square Toe Slip-On Ballerinas.jpg", name: "JodyHub Square Toe Slip-On Ballerinas", price: "₹1499" },
+  { src: "Women Section Images/ERIDANI Seren Strappy Block Heel Sandal.jpg", name: "ERIDANI Seren Strappy Block Heel Sandal", price: "₹1659" },
+  { src: "Women Section Images/Mochi Women Black Comfort Heels.jpg", name: "Mochi Women Black Comfort Heels", price: "₹1249" },
+  { src: "Women Section Images/Adidas  GAZELLE.jpg", name: "Adidas  GAZELLE", price: "₹7149" },
 ];
 
 const womensectionGrid = document.getElementById("womenSectionGrid");
 
 function womenSectionCard() {
+  const container = document.getElementById("womenSectionGrid");
+  container.innerHTML = "";
 
   womenSectionImages.forEach(item => {
     const card = document.createElement("div");

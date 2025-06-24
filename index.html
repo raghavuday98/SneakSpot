@@ -24,41 +24,169 @@
         </div>
         <div class="searchbar"><i class="fa-solid fa-magnifying-glass"></i><input type="text" placeholder="Search">
         </div>
-        <a href="" class="navWishlist"><i class="fa-regular fa-heart"></i></a>
-        <a href="" class="navCart"><i class="fa-solid fa-bag-shopping"></i></a>
+        <a href="" class="navWishlist" id="nav-wishlist"><i class="fa-regular fa-heart"></i></a>
+        <a href="" class="navCart" id="nav-cart"><i class="fa-solid fa-bag-shopping"></i></a>
     </div>
     <!--New Arrival-->
     <div id="newArrivalSection" class="new-arrival" style="display: none;">
-        <h2>New Arrivals</h2>
+        <div class="sale-header">
+            <h1 class="sale-main-title">Just Dropped!</h1>
+            <p class="sale-subtitle">Fresh kicks, hot outta the box. Cop 'em before they vanish!</p>
+        </div>
+
         <div class="section-grid" id="newArrivalGrid"> </div>
     </div>
 
     <!--Men-->
     <div id="menSection" class="menNavTag" style="display: none;">
-        <h2>Men Section</h2>
+        <div class="sale-header">
+            <h1 class="sale-main-title">Men’s Collection</h1>
+            <p class="sale-subtitle">Built for hustle. Designed for drip. Gear up</p>
+        </div>
+
         <div class="section-grid" id="menSectionGrid"> </div>
 
     </div>
     <!--Women-->
     <div id="womenSection" class="womenNavTag" style="display: none;">
-        <h2>Women Section</h2>
+        <div class="sale-header">
+            <h1 class="sale-main-title">Women’s Collection</h1>
+            <p class="sale-subtitle">Slay every step. Style that turns heads. 💅</p>
+        </div>
+
         <div class="section-grid" id="womenSectionGrid"></div>
     </div>
     <!--Kids-->
     <div id="kidsSection" class="kidsNavTag" style="display: none;">
-        <h2>Kids</h2>
+        <div class="sale-header">
+            <h1 class="sale-main-title">Kids Zone</h1>
+            <p class="sale-subtitle">Lil feet, big vibes. Cute meets cool. 🧸✨</p>
+        </div>
+
         <div class="section-grid" id="kidsSectionGrid"></div>
     </div>
     <!--Sale-->
     <div id="saleSection" class="saleNavTag" style="display: none;">
         <div class="sale-header">
-  <h1 class="sale-main-title">SneakSpot Sale</h1>
-  <p class="sale-subtitle">Limited time. Don’t snooze!</p>
-</div>
+            <h1 class="sale-main-title">SneakSpot Sale</h1>
+            <p class="sale-subtitle">Limited time. Don’t snooze!</p>
+        </div>
 
         <div class="section-grid" id="saleSectionGrid"></div>
-        
+
     </div>
+    
+    <!--Wishlist-->
+    <div id="wishlistSection" class="wishlist" style="display: none;">
+        <div class="wishlist-container">
+  <h1>Wishlist</h1>
+
+  <div class="wishlist-item">
+    <div class="item-info">
+      <img src="running.jpg" alt="Running Shoes" />
+      <div>
+        <h3>Running Shoes</h3>
+        <p>$120</p>
+      </div>
+    </div>
+    <div class="item-actions">
+      <button class="add-btn">Add to Bag</button>
+      <button class="remove-btn">Remove</button>
+    </div>
+  </div>
+
+  <div class="wishlist-item">
+    <div class="item-info">
+      <img src="sneakers.jpg" alt="Casual Sneakers" />
+      <div>
+        <h3>Casual Sneakers</h3>
+        <p>$90</p>
+      </div>
+    </div>
+    <div class="item-actions">
+      <button class="add-btn">Add to Bag</button>
+      <button class="remove-btn">Remove</button>
+    </div>
+  </div>
+
+  <div class="wishlist-item">
+    <div class="item-info">
+      <img src="basketball.jpg" alt="Basketball Shoes" />
+      <div>
+        <h3>Basketball Shoes</h3>
+        <p>$150</p>
+      </div>
+    </div>
+    <div class="item-actions">
+      <button class="add-btn">Add to Bag</button>
+      <button class="remove-btn">Remove</button>
+    </div>
+  </div>
+
+  <div class="wishlist-item">
+    <div class="item-info">
+      <img src="training.jpg" alt="Training Shoes" />
+      <div>
+        <h3>Training Shoes</h3>
+        <p>$110</p>
+      </div>
+    </div>
+    <div class="item-actions">
+      <button class="add-btn">Add to Bag</button>
+      <button class="remove-btn">Remove</button>
+    </div>
+  </div>
+</div>
+
+    </div>
+
+    <!--Cart-->
+    <div id="cartSection" class="cart-container" style="display: none;">
+  <h1>Shopping Bag</h1>
+  <p class="cart-subtitle">Items in your bag are not reserved – check out now to make them yours.</p>
+
+  <div class="cart-items">
+    <div class="cart-item">
+      <img src="redtape.webp" alt="Running Shoes" />
+      <div class="item-details">
+        <h3>Running Shoes</h3>
+        <p>Quantity: 1</p>
+        <p>Size 8</p>
+      </div>
+      <div class="item-price">$120</div>
+    </div>
+
+    <div class="cart-item">
+      <img src="redtape1.webp" alt="Casual Sneakers" />
+      <div class="item-details">
+        <h3>Casual Sneakers</h3>
+        <p>Quantity: 2</p>
+        <p>Size 9</p>
+      </div>
+      <div class="item-price">$150</div>
+    </div>
+
+    <div class="cart-item">
+      <img src="redtape2.webp" alt="Hiking Boots" />
+      <div class="item-details">
+        <h3>Hiking Boots</h3>
+        <p>Quantity: 1</p>
+        <p>Size 7</p>
+      </div>
+      <div class="item-price">$180</div>
+    </div>
+  </div>
+
+  <div class="cart-summary">
+    <h2>Summary</h2>
+    <div class="summary-row"><span>Subtotal</span><span>$450</span></div>
+    <div class="summary-row"><span>Shipping</span><span>Free</span></div>
+    <div class="summary-row"><span>Estimated Tax</span><span>$30</span></div>
+    <div class="summary-row total"><span>Total</span><span>$480</span></div>
+    <button class="checkout-btn">Checkout</button>
+  </div>
+</div>
+
 
 
     <div class="home" style="display: none;">
