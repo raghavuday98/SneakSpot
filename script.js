@@ -15,6 +15,132 @@ const cartBtn = document.querySelector(".navCart");
 const cartSection = document.getElementById("cartSection");
 const wishlistBtn = document.querySelector(".navWishlist");
 const wishlistSection = document.getElementById("wishlistSection");
+const addToCartBtn = document.getElementById("nav-cart");
+const addToWishlistBtn = document.getElementById("nav-wishlist");
+
+// Add to Cart Js
+let bagItems = [];
+
+document.addEventListener("click", function (e) {
+  // Add to Bag button clicked
+  if (e.target.closest(".bag-btn")) {
+    const card = e.target.closest(".section-card");
+    const imgSrc = card.querySelector("img").src;
+    const name = card.querySelector("h4").textContent;
+    const price = card.querySelector("p").textContent;
+
+    const existingIndex = bagItems.findIndex(item => item.name === name);
+    if (existingIndex !== -1) {
+      bagItems[existingIndex].quantity++;
+    } else {
+      bagItems.push({ imgSrc, name, price, quantity: 1 });
+    }
+
+    renderBagItems();
+    showToast("Item added to your bag");
+    updateCardQtyButton(name);
+  }
+
+  // Remove item from cart
+  if (e.target.classList.contains("remove-cart-btn")) {
+    const index = e.target.dataset.index;
+    bagItems.splice(index, 1);
+    renderBagItems();
+  }
+});
+
+function renderBagItems() {
+  const cartContainer = document.getElementById("cartItemsContainer");
+  cartContainer.innerHTML = "";
+
+  bagItems.forEach((item, index) => {
+    const priceNum = parseInt(item.price.replace(/[₹,]/g, ""));
+    const totalPrice = priceNum * item.quantity;
+
+    const cartItem = document.createElement("div");
+    cartItem.classList.add("cart-item");
+
+    cartItem.innerHTML = `
+      <img src="${item.imgSrc}" alt="${item.name}" />
+      <div class="item-details">
+        <h3>${item.name}</h3>
+        <p>Price: ₹${priceNum}</p>
+        <div class="cart-qty-selector" data-index="${index}">
+          <button class="cart-qty-btn minus">−</button>
+          <span class="cart-qty-value">${item.quantity}</span>
+          <button class="cart-qty-btn plus">+</button>
+        </div>
+      </div>
+      <div class="item-price">₹${totalPrice}</div>
+      <button class="remove-cart-btn" data-index="${index}">Remove</button>
+    `;
+
+    cartContainer.appendChild(cartItem);
+  });
+
+  handleQuantityButtons();
+  calculateTotal();
+}
+
+function handleQuantityButtons() {
+  document.querySelectorAll(".cart-qty-selector").forEach(selector => {
+    const index = selector.dataset.index;
+    const minusBtn = selector.querySelector(".minus");
+    const plusBtn = selector.querySelector(".plus");
+
+    minusBtn.addEventListener("click", () => {
+      if (bagItems[index].quantity > 1) {
+        bagItems[index].quantity--;
+        renderBagItems();
+      }
+    });
+
+    plusBtn.addEventListener("click", () => {
+      bagItems[index].quantity++;
+      renderBagItems();
+    });
+  });
+}
+function showToast(message) {
+  const toast = document.getElementById("toast");
+  toast.textContent = message;
+  toast.classList.add("show");
+
+  setTimeout(() => {
+    toast.classList.remove("show");
+  }, 2500);
+}
+
+function calculateTotal() {
+  let subtotal = 0;
+  const taxRate = 0.08;
+
+  bagItems.forEach(item => {
+    const price = parseFloat(item.price.replace(/[₹,]/g, ""));
+    subtotal += price * item.quantity;
+  });
+
+  const tax = Math.round(subtotal * taxRate);
+  const total = subtotal + tax;
+
+  // update DOM
+  const subtotalEl = document.getElementById("subtotal");
+  const taxEl = document.getElementById("tax");
+  const totalEl = document.getElementById("total");
+
+  if (subtotalEl) subtotalEl.textContent = `₹${subtotal}`;
+  if (taxEl) taxEl.textContent = `₹${tax}`;
+  if (totalEl) totalEl.textContent = `₹${total}`;
+
+  // Disable checkout if cart is empty
+  const checkoutBtn = document.querySelector(".checkout-btn");
+  if (checkoutBtn) {
+    checkoutBtn.disabled = bagItems.length === 0;
+    checkoutBtn.style.opacity = bagItems.length === 0 ? "0.5" : "1";
+    checkoutBtn.style.cursor = bagItems.length === 0 ? "not-allowed" : "pointer";
+  }
+}
+
 
 
 function showSection(sectionToShow) {

@@ -2,283 +2,256 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
-    <div class="navbar">
-        <div class="navlogo"></div>
-        <div class="navTag">
-            <a href="" id="nav-home">Home</a>
-            <a href="" id="nav-new-arrival">New Arrival</a>
-            <a href="" id="nav-men">Men</a>
-            <a href="" id="nav-women">Women</a>
-            <a href="" id="nav-kids">Kids</a>
-            <a href="" id="nav-sale">Sale</a>
-        </div>
-        <div class="searchbar"><i class="fa-solid fa-magnifying-glass"></i><input type="text" placeholder="Search">
-        </div>
-        <a href="" class="navWishlist" id="nav-wishlist"><i class="fa-regular fa-heart"></i></a>
-        <a href="" class="navCart" id="nav-cart"><i class="fa-solid fa-bag-shopping"></i></a>
+  <div class="navbar">
+    <div class="navlogo"></div>
+    <div class="navTag">
+      <a href="" id="nav-home">Home</a>
+      <a href="" id="nav-new-arrival">New Arrival</a>
+      <a href="" id="nav-men">Men</a>
+      <a href="" id="nav-women">Women</a>
+      <a href="" id="nav-kids">Kids</a>
+      <a href="" id="nav-sale">Sale</a>
     </div>
-    <!--New Arrival-->
-    <div id="newArrivalSection" class="new-arrival" style="display: none;">
-        <div class="sale-header">
-            <h1 class="sale-main-title">Just Dropped!</h1>
-            <p class="sale-subtitle">Fresh kicks, hot outta the box. Cop 'em before they vanish!</p>
-        </div>
-
-        <div class="section-grid" id="newArrivalGrid"> </div>
+    <div class="searchbar"><i class="fa-solid fa-magnifying-glass"></i><input type="text" placeholder="Search">
+    </div>
+    <a href="" class="navWishlist" id="nav-wishlist"><i class="fa-regular fa-heart"></i></a>
+    <a href="" class="navCart" id="nav-cart"><i class="fa-solid fa-bag-shopping"></i></a>
+  </div>
+  <!--New Arrival-->
+  <div id="newArrivalSection" class="new-arrival" style="display: none;">
+    <div class="sale-header">
+      <h1 class="sale-main-title">Just Dropped!</h1>
+      <p class="sale-subtitle">Fresh kicks, hot outta the box. Cop 'em before they vanish!</p>
     </div>
 
-    <!--Men-->
-    <div id="menSection" class="menNavTag" style="display: none;">
-        <div class="sale-header">
-            <h1 class="sale-main-title">Men’s Collection</h1>
-            <p class="sale-subtitle">Built for hustle. Designed for drip. Gear up</p>
-        </div>
-
-        <div class="section-grid" id="menSectionGrid"> </div>
-
-    </div>
-    <!--Women-->
-    <div id="womenSection" class="womenNavTag" style="display: none;">
-        <div class="sale-header">
-            <h1 class="sale-main-title">Women’s Collection</h1>
-            <p class="sale-subtitle">Slay every step. Style that turns heads. 💅</p>
-        </div>
-
-        <div class="section-grid" id="womenSectionGrid"></div>
-    </div>
-    <!--Kids-->
-    <div id="kidsSection" class="kidsNavTag" style="display: none;">
-        <div class="sale-header">
-            <h1 class="sale-main-title">Kids Zone</h1>
-            <p class="sale-subtitle">Lil feet, big vibes. Cute meets cool. 🧸✨</p>
-        </div>
-
-        <div class="section-grid" id="kidsSectionGrid"></div>
-    </div>
-    <!--Sale-->
-    <div id="saleSection" class="saleNavTag" style="display: none;">
-        <div class="sale-header">
-            <h1 class="sale-main-title">SneakSpot Sale</h1>
-            <p class="sale-subtitle">Limited time. Don’t snooze!</p>
-        </div>
-
-        <div class="section-grid" id="saleSectionGrid"></div>
-
-    </div>
-    
-    <!--Wishlist-->
-    <div id="wishlistSection" class="wishlist" style="display: none;">
-        <div class="wishlist-container">
-  <h1>Wishlist</h1>
-
-  <div class="wishlist-item">
-    <div class="item-info">
-      <img src="running.jpg" alt="Running Shoes" />
-      <div>
-        <h3>Running Shoes</h3>
-        <p>$120</p>
-      </div>
-    </div>
-    <div class="item-actions">
-      <button class="add-btn">Add to Bag</button>
-      <button class="remove-btn">Remove</button>
-    </div>
+    <div class="section-grid" id="newArrivalGrid"> </div>
   </div>
 
-  <div class="wishlist-item">
-    <div class="item-info">
-      <img src="sneakers.jpg" alt="Casual Sneakers" />
-      <div>
-        <h3>Casual Sneakers</h3>
-        <p>$90</p>
-      </div>
+  <!--Men-->
+  <div id="menSection" class="menNavTag" style="display: none;">
+    <div class="sale-header">
+      <h1 class="sale-main-title">Men’s Collection</h1>
+      <p class="sale-subtitle">Built for hustle. Designed for drip. Gear up</p>
     </div>
-    <div class="item-actions">
-      <button class="add-btn">Add to Bag</button>
-      <button class="remove-btn">Remove</button>
+
+    <div class="section-grid" id="menSectionGrid"> </div>
+
+  </div>
+  <!--Women-->
+  <div id="womenSection" class="womenNavTag" style="display: none;">
+    <div class="sale-header">
+      <h1 class="sale-main-title">Women’s Collection</h1>
+      <p class="sale-subtitle">Slay every step. Style that turns heads. 💅</p>
     </div>
+
+    <div class="section-grid" id="womenSectionGrid"></div>
+  </div>
+  <!--Kids-->
+  <div id="kidsSection" class="kidsNavTag" style="display: none;">
+    <div class="sale-header">
+      <h1 class="sale-main-title">Kids Zone</h1>
+      <p class="sale-subtitle">Lil feet, big vibes. Cute meets cool. 🧸✨</p>
+    </div>
+
+    <div class="section-grid" id="kidsSectionGrid"></div>
+  </div>
+  <!--Sale-->
+  <div id="saleSection" class="saleNavTag" style="display: none;">
+    <div class="sale-header">
+      <h1 class="sale-main-title">SneakSpot Sale</h1>
+      <p class="sale-subtitle">Limited time. Don’t snooze!</p>
+    </div>
+
+    <div class="section-grid" id="saleSectionGrid"></div>
+
   </div>
 
-  <div class="wishlist-item">
-    <div class="item-info">
-      <img src="basketball.jpg" alt="Basketball Shoes" />
-      <div>
-        <h3>Basketball Shoes</h3>
-        <p>$150</p>
+  <!--Wishlist-->
+  <div id="wishlistSection" class="wishlist" style="display: none;">
+    <div class="wishlist-container">
+      <h1>Wishlist</h1>
+
+      <div class="wishlist-item">
+        <div class="item-info">
+          <img src="running.jpg" alt="Running Shoes" />
+          <div>
+            <h3>Running Shoes</h3>
+            <p>$120</p>
+          </div>
+        </div>
+        <div class="item-actions">
+          <button class="add-btn">Add to Bag</button>
+          <button class="remove-btn">Remove</button>
+        </div>
+      </div>
+
+      <div class="wishlist-item">
+        <div class="item-info">
+          <img src="sneakers.jpg" alt="Casual Sneakers" />
+          <div>
+            <h3>Casual Sneakers</h3>
+            <p>$90</p>
+          </div>
+        </div>
+        <div class="item-actions">
+          <button class="add-btn">Add to Bag</button>
+          <button class="remove-btn">Remove</button>
+        </div>
+      </div>
+
+      <div class="wishlist-item">
+        <div class="item-info">
+          <img src="basketball.jpg" alt="Basketball Shoes" />
+          <div>
+            <h3>Basketball Shoes</h3>
+            <p>$150</p>
+          </div>
+        </div>
+        <div class="item-actions">
+          <button class="add-btn">Add to Bag</button>
+          <button class="remove-btn">Remove</button>
+        </div>
+      </div>
+
+      <div class="wishlist-item">
+        <div class="item-info">
+          <img src="training.jpg" alt="Training Shoes" />
+          <div>
+            <h3>Training Shoes</h3>
+            <p>$110</p>
+          </div>
+        </div>
+        <div class="item-actions">
+          <button class="add-btn">Add to Bag</button>
+          <button class="remove-btn">Remove</button>
+        </div>
       </div>
     </div>
-    <div class="item-actions">
-      <button class="add-btn">Add to Bag</button>
-      <button class="remove-btn">Remove</button>
-    </div>
+
   </div>
 
-  <div class="wishlist-item">
-    <div class="item-info">
-      <img src="training.jpg" alt="Training Shoes" />
-      <div>
-        <h3>Training Shoes</h3>
-        <p>$110</p>
-      </div>
-    </div>
-    <div class="item-actions">
-      <button class="add-btn">Add to Bag</button>
-      <button class="remove-btn">Remove</button>
-    </div>
-  </div>
-</div>
+  <!--Cart-->
+  <div id="cartSection" class="cart-container" style="display: none;">
+    <h1>Shopping Bag</h1>
+    <p class="cart-subtitle">Items in your bag are not reserved – check out now to make them yours.</p>
 
-    </div>
+    <!-- ✅ THIS IS WHERE ITEMS WILL BE ADDED -->
+    <div class="cart-items" id="cartItemsContainer"></div>
 
-    <!--Cart-->
-    <div id="cartSection" class="cart-container" style="display: none;">
-  <h1>Shopping Bag</h1>
-  <p class="cart-subtitle">Items in your bag are not reserved – check out now to make them yours.</p>
-
-  <div class="cart-items">
-    <div class="cart-item">
-      <img src="redtape.webp" alt="Running Shoes" />
-      <div class="item-details">
-        <h3>Running Shoes</h3>
-        <p>Quantity: 1</p>
-        <p>Size 8</p>
-      </div>
-      <div class="item-price">$120</div>
+    <div class="cart-summary">
+      <h2>Summary</h2>
+      <div class="summary-row subtotal"><span>Subtotal</span><span id="subtotal">₹0</span></div>
+      <div class="summary-row shipping"><span>Shipping</span><span>Free</span></div>
+      <div class="summary-row estimated-tax"><span>Estimated Tax</span><span id="tax">₹0</span></div>
+      <div class="summary-row total"><span>Total</span><span id="total">₹0</span></div>
+      <button class="checkout-btn">Checkout</button>
     </div>
 
-    <div class="cart-item">
-      <img src="redtape1.webp" alt="Casual Sneakers" />
-      <div class="item-details">
-        <h3>Casual Sneakers</h3>
-        <p>Quantity: 2</p>
-        <p>Size 9</p>
-      </div>
-      <div class="item-price">$150</div>
-    </div>
 
-    <div class="cart-item">
-      <img src="redtape2.webp" alt="Hiking Boots" />
-      <div class="item-details">
-        <h3>Hiking Boots</h3>
-        <p>Quantity: 1</p>
-        <p>Size 7</p>
-      </div>
-      <div class="item-price">$180</div>
-    </div>
   </div>
 
-  <div class="cart-summary">
-    <h2>Summary</h2>
-    <div class="summary-row"><span>Subtotal</span><span>$450</span></div>
-    <div class="summary-row"><span>Shipping</span><span>Free</span></div>
-    <div class="summary-row"><span>Estimated Tax</span><span>$30</span></div>
-    <div class="summary-row total"><span>Total</span><span>$480</span></div>
-    <button class="checkout-btn">Checkout</button>
-  </div>
-</div>
+
+  <div class="home" style="display: none;">
+    <div class="heroSection">
+      <div class="arrow left">
+        <img src="previous arrow.png" alt="Previous">
+      </div>
+
+      <div class="mainContainer">
+        <div class="mainContent">
+          <img src="Hero Section images/hero nike.png" alt="Shoe">
+          <h1>NIKE AIR JORDAN 1</h1>
+        </div>
+      </div>
+
+      <div class="arrow right">
+        <img src="next arrrow.png" alt="Next">
+      </div>
+    </div>
 
 
-
-    <div class="home" style="display: none;">
-        <div class="heroSection">
-            <div class="arrow left">
-                <img src="previous arrow.png" alt="Previous">
-            </div>
-
-            <div class="mainContainer">
-                <div class="mainContent">
-                    <img src="Hero Section images/hero nike.png" alt="Shoe">
-                    <h1>NIKE AIR JORDAN 1</h1>
-                </div>
-            </div>
-
-            <div class="arrow right">
-                <img src="next arrrow.png" alt="Next">
-            </div>
+    <section class="categories">
+      <h2>Shop by Brand</h2>
+      <div class="category-grid">
+        <div class="category">
+          <img src="nike.webp" alt="">
+          <p>Nike</p>
+        </div>
+        <div class="category">
+          <img src="puma6.jpg" alt="">
+          <p>Puma</p>
+        </div>
+        <div class="category">
+          <img src="adidas.avif" alt="">
+          <p>Adidas</p>
+        </div>
+        <div class="category">
+          <img src="campus.webp" alt="">
+          <p>Campus</p>
+        </div>
+        <div class="category">
+          <img src="asian.webp" alt="">
+          <p>Asian</p>
+        </div>
+        <div class="category">
+          <img src="redtape.webp" alt="">
+          <p>Redtape</p>
         </div>
 
+      </div>
+    </section>
 
-        <section class="categories">
-            <h2>Shop by Brand</h2>
-            <div class="category-grid">
-                <div class="category">
-                    <img src="nike.webp" alt="">
-                    <p>Nike</p>
-                </div>
-                <div class="category">
-                    <img src="puma6.jpg" alt="">
-                    <p>Puma</p>
-                </div>
-                <div class="category">
-                    <img src="adidas.avif" alt="">
-                    <p>Adidas</p>
-                </div>
-                <div class="category">
-                    <img src="campus.webp" alt="">
-                    <p>Campus</p>
-                </div>
-                <div class="category">
-                    <img src="asian.webp" alt="">
-                    <p>Asian</p>
-                </div>
-                <div class="category">
-                    <img src="redtape.webp" alt="">
-                    <p>Redtape</p>
-                </div>
+    <section class="featured">
+      <h2>Featured Products</h2>
+      <div class="product-grid">
+        <div class="product">
+          <img src="running.jpg" alt="">
+          <h4>Sports</h4>
 
-            </div>
-        </section>
-
-        <section class="featured">
-            <h2>Featured Products</h2>
-            <div class="product-grid">
-                <div class="product">
-                    <img src="running.jpg" alt="">
-                    <h4>Sports</h4>
-
-                </div>
-                <div class="product">
-                    <img src="formal.webp" alt="">
-                    <h4>Formal</h4>
-                </div>
-                <div class="product">
-                    <img src="casual.webp" alt="">
-                    <h4>Everyday Style</h4>
-
-                </div>
-                <div class="product">
-                    <img src="sneakers.jpg" alt="">
-                    <h4>Sneakers</h4>
-                </div>
-            </div>
-        </section>
-        <div class="trendingNow">
-            <h2></h2>
-            <div class="trending-grid">
-
-            </div>
         </div>
-        <footer>
-            <div class="footer-links">
-                <a href="#">About Us</a>
-                <a href="#">Contact</a>
-                <a href="#">FAQs</a>
-                <a href="#">Privacy Policy</a>
-                <a href="#">Terms of Service</a>
-            </div>
-            <p>©2024 Footwear Emporium. All rights reserved.</p>
-        </footer>
+        <div class="product">
+          <img src="formal.webp" alt="">
+          <h4>Formal</h4>
+        </div>
+        <div class="product">
+          <img src="casual.webp" alt="">
+          <h4>Everyday Style</h4>
+
+        </div>
+        <div class="product">
+          <img src="sneakers.jpg" alt="">
+          <h4>Sneakers</h4>
+        </div>
+      </div>
+    </section>
+    <div class="trendingNow">
+      <h2></h2>
+      <div class="trending-grid">
+
+      </div>
     </div>
+    <footer>
+      <div class="footer-links">
+        <a href="#">About Us</a>
+        <a href="#">Contact</a>
+        <a href="#">FAQs</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+      </div>
+      <p>©2024 Footwear Emporium. All rights reserved.</p>
+    </footer>
+  </div>
+  <div id="toast" class="toast">Item added to your bag</div>
 
 </body>
 <script src="script.js"></script>
