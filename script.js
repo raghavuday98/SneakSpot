@@ -21,13 +21,20 @@ const addToWishlistBtn = document.getElementById("nav-wishlist");
 // Add to Cart Js
 let bagItems = [];
 
+const storedCart = localStorage.getItem("bagItems");
+if (storedCart) {
+  bagItems = JSON.parse(storedCart);
+}
+
+
 document.addEventListener("click", function (e) {
   // Add to Bag button clicked
   if (e.target.closest(".bag-btn")) {
     const card = e.target.closest(".section-card");
     const imgSrc = card.querySelector("img").src;
     const name = card.querySelector("h4").textContent;
-    const price = card.querySelector("p").textContent;
+    const price = card.dataset.price || card.querySelector("p").textContent;
+
 
     const existingIndex = bagItems.findIndex(item => item.name === name);
     if (existingIndex !== -1) {
@@ -80,6 +87,8 @@ function renderBagItems() {
 
   handleQuantityButtons();
   calculateTotal();
+  localStorage.setItem("bagItems", JSON.stringify(bagItems));
+
 }
 
 function handleQuantityButtons() {
@@ -140,9 +149,84 @@ function calculateTotal() {
     checkoutBtn.style.cursor = bagItems.length === 0 ? "not-allowed" : "pointer";
   }
 }
+// wishlist setup
+let wishlistItems = [];
 
+const storedWishlist = localStorage.getItem("wishlistItems");
+if (storedWishlist) {
+  wishlistItems = JSON.parse(storedWishlist);
+}
 
+// DOM Event Listener
+document.addEventListener("click", function (e) {
+  // Add to wishlist
+  if (e.target.closest(".wishlist-btn")) {
+    const card = e.target.closest(".section-card");
+    const imgSrc = card.querySelector("img").src;
+    const name = card.querySelector("h4").textContent;
+    const price = card.dataset.price || card.querySelector("p").textContent;
 
+    const exists = wishlistItems.some(item => item.name === name);
+    if (!exists) {
+      wishlistItems.push({ imgSrc, name, price });
+      showToast("Added to Wishlist ❤️");
+    } else {
+      showToast("Already in Wishlist 😉");
+    }
+
+    renderWishlistItems();
+  }
+
+  // Remove from wishlist
+  if (e.target.classList.contains("remove-wishlist-btn")) {
+    const index = e.target.dataset.index;
+    wishlistItems.splice(index, 1);
+    renderWishlistItems();
+    showToast("Removed from Wishlist 🗑️");
+  }
+});
+function renderWishlistItems() {
+  const container = document.getElementById("wishlist-container");
+  if (!container) return;
+
+  container.innerHTML = "";
+
+  wishlistItems.forEach((item, index) => {
+    const wishlistItem = document.createElement("div");
+    wishlistItem.classList.add("wishlist-item");
+
+    wishlistItem.innerHTML = `
+  <div class="item-info">
+    <img src="${item.imgSrc}" alt="${item.name}">
+    <div>
+      <h3>${item.name}</h3>
+      <p>${item.price}</p>
+    </div>
+  </div>
+  <div class="actions">
+    <button class="add-btn" data-index="${index}">Add to Bag</button>
+    <button class="remove-wishlist-btn" data-index="${index}">Remove</button>
+  </div>
+`;
+
+    container.appendChild(wishlistItem);
+  });
+
+  localStorage.setItem("wishlistItems", JSON.stringify(wishlistItems));
+  truncateText(".item-info h3", 25); // limit product name to 25 chars
+  truncateText(".item-info p", 20);  // limit price/desc to 20 chars
+
+}
+
+function truncateText(selector, maxLength) {
+  document.querySelectorAll(selector).forEach(el => {
+    if (el.textContent.length > maxLength) {
+      el.textContent = el.textContent.slice(0, maxLength - 3) + "...";
+    }
+  });
+}
+
+//home seection
 function showSection(sectionToShow) {
   homeSection.style.display = "none";
   newArrivalSection.style.display = "none";
@@ -190,6 +274,10 @@ window.addEventListener("DOMContentLoaded", () => {
   const section = document.getElementById(savedSectionId) || homeSection;
 
   showSection(section);
+  renderBagItems();
+  renderWishlistItems();
+
+
 
   // Remove all active classes first
   document.querySelectorAll(".navTag a, .navCart, .navWishlist").forEach(link => {
@@ -287,7 +375,19 @@ const newArrivalImages = [
   { src: "New Arrival Images/Red Tape Men Textured Lace-Up ETPU Walking Shoes.jpg", name: "Red Tape Men ETPU Walking Shoes", price: "₹2519" },
   { src: "New Arrival Images/asian Men Round Toe Sneakers.jpg", name: "ASIAN Men Round Toe Sneakers", price: "₹899" },
   { src: "New Arrival Images/Red Tape Men Round Toe Memory Foam.jpg", name: "Red Tape Men Round Toe Memory Foam", price: "₹7199" },
-
+  //repeat
+  { src: "New Arrival Images/Froh Feet.jpg", name: "Froh Feet", price: "₹2499" },
+  { src: "New Arrival Images/U.S. Polo Assn.jpg", name: "U.S. Polo Assn", price: "₹2349" },
+  { src: "New Arrival Images/Server Boat Shoes.jpg", name: "SERVER LACE-UPS BOAT ", price: "₹3599" },
+  { src: "New Arrival Images/Brekins.jpg", name: "BERKINS Casual Regular Boots", price: "₹2449" },
+  { src: "New Arrival Images/HRX Unisex Back To School Shoes.jpg", name: "HRX Unisex Back To School Shoes", price: "₹1199" },
+  { src: "New Arrival Images/Badminton Smash Sprint.jpg", name: "PUMA Badminton Smash Sprint ", price: "₹2499" },
+  { src: "New Arrival Images/Red Tape Women Mesh Walking Shoes.jpg", name: "Red Tape Women Mesh Walking Shoes", price: "₹2369" },
+  { src: "New Arrival Images/Bata Formal Oxfords.jpg", name: "Bata Formal Oxfords", price: "₹1277" },
+  { src: "New Arrival Images/HRX Men Mesh Running Shoes.jpg", name: "HRX Men Mesh Running Shoes", price: "₹999" },
+  { src: "New Arrival Images/Red Tape Men Textured Lace-Up ETPU Walking Shoes.jpg", name: "Red Tape Men ETPU Walking Shoes", price: "₹2519" },
+  { src: "New Arrival Images/asian Men Round Toe Sneakers.jpg", name: "ASIAN Men Round Toe Sneakers", price: "₹899" },
+  { src: "New Arrival Images/Red Tape Men Round Toe Memory Foam.jpg", name: "Red Tape Men Round Toe Memory Foam", price: "₹7199" },
 ];
 
 const newArrivalGrid = document.getElementById("newArrivalGrid");
@@ -330,7 +430,19 @@ const menSectionImages = [
   { src: "Men Section Images/USPA Men Signature Tape PU Loafers.jpg", name: "USPA Men Signature Tape PU Loafers", price: "₹1959" },
   { src: "Men Section Images/Campus Men Colourblocked PU Sneakers.jpg", name: "Campus Men Colourblocked PU Sneakers", price: "₹1499" },
   { src: "Men Section Images/PUMA Court Shatter.jpg", name: "PUMA Court Shatter", price: "₹3499" },
-
+  //repeat
+  { src: "Men Section Images/HRX Unisex Mesh Running Shoes.jpg", name: "HRX Unisex Mesh Running Shoes", price: "₹1149" },
+  { src: "Men Section Images/Red Tape Men Sneakers.jpg", name: "Red Tape Men Sneakers", price: "₹1899" },
+  { src: "Men Section Images/NIKE Men Court Vision Low Sneakers.jpg", name: "NIKE Men Court Vision Low Sneakers", price: "₹5699" },
+  { src: "Men Section Images/PUMA Smashic Soft Suede Sneakers.jpg", name: "PUMA Smashic Soft Suede Sneakers", price: "₹1999" },
+  { src: "Men Section Images/USPA CLARKIN 4.0 Men Canvas Sneakers.jpg", name: "USPA CLARKIN 4.0 Men Canvas Sneakers", price: "₹1699" },
+  { src: "Men Section Images/Red Tape Round Toe Memory Sneakers.jpg", name: "Red Tape Round Toe Memory Sneakers", price: "₹2199" },
+  { src: "Men Section Images/ADIDAS Men Samba OG Leather Sneakers.jpg", name: "ADIDAS Men Samba OG Leather Sneakers", price: "₹10999" },
+  { src: "Men Section Images/NIKE Men Air Max Fusion Sneakers.jpg", name: "NIKE Men Air Max Fusion Sneakers", price: "₹5999" },
+  { src: "Men Section Images/Campus Men Lace-Up Running Shoes.jpg", name: "Campus Men Lace-Up Running Shoes", price: "₹1249" },
+  { src: "Men Section Images/USPA Men Signature Tape PU Loafers.jpg", name: "USPA Men Signature Tape PU Loafers", price: "₹1959" },
+  { src: "Men Section Images/Campus Men Colourblocked PU Sneakers.jpg", name: "Campus Men Colourblocked PU Sneakers", price: "₹1499" },
+  { src: "Men Section Images/PUMA Court Shatter.jpg", name: "PUMA Court Shatter", price: "₹3499" },
 
 ];
 
@@ -362,6 +474,19 @@ window.addEventListener("DOMContentLoaded", menSectionCard);
 
 //women Section JS
 const womenSectionImages = [
+  { src: "Women Section Images/PUMA Court Classic Lux.jpg", name: "PUMA Court Classic Lux", price: "₹3299" },
+  { src: "Women Section Images/BARKER Bonnie Navy Grain.jpg", name: "BARKER Bonnie Navy Grain", price: "₹27600" },
+  { src: "Women Section Images/NIKE Run Defy.jpg", name: "NIKE Run Defy ", price: "₹3995" },
+  { src: "Women Section Images/Adidas Unisex Superstar.jpg", name: "Adidas Unisex Superstar", price: "₹9599" },
+  { src: "Women Section Images/The Souled Store Urban Blaze.jpg", name: "The Souled Store Urban Blaze", price: "₹2618" },
+  { src: "Women Section Images/Red Tape Women Sneakers.jpg", name: "Red Tape Women Sneakers", price: "₹1549" },
+  { src: "Women Section Images/NIKE Air Force 1 '07.jpg", name: "NIKE Air Force 1 '07", price: "₹9695" },
+  { src: "Women Section Images/PUMA X-Ray 2 Square.jpg", name: "PUMA X-Ray 2 Square", price: "₹3999" },
+  { src: "Women Section Images/JodyHub Square Toe Slip-On Ballerinas.jpg", name: "JodyHub Square Toe Slip-On Ballerinas", price: "₹1499" },
+  { src: "Women Section Images/ERIDANI Seren Strappy Block Heel Sandal.jpg", name: "ERIDANI Seren Strappy Block Heel Sandal", price: "₹1659" },
+  { src: "Women Section Images/Mochi Women Black Comfort Heels.jpg", name: "Mochi Women Black Comfort Heels", price: "₹1249" },
+  { src: "Women Section Images/Adidas  GAZELLE.jpg", name: "Adidas  GAZELLE", price: "₹7149" },
+  //repeat
   { src: "Women Section Images/PUMA Court Classic Lux.jpg", name: "PUMA Court Classic Lux", price: "₹3299" },
   { src: "Women Section Images/BARKER Bonnie Navy Grain.jpg", name: "BARKER Bonnie Navy Grain", price: "₹27600" },
   { src: "Women Section Images/NIKE Run Defy.jpg", name: "NIKE Run Defy ", price: "₹3995" },
@@ -458,6 +583,7 @@ function saleSectionCard() {
 
     const card = document.createElement("div");
     card.className = "section-card";
+    card.setAttribute("data-price", price);
 
     card.innerHTML = `
   <img src="${item.src}" alt="${item.name}">
