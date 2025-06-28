@@ -497,8 +497,6 @@ const womenSectionImages = [
   { src: "Women Section Images/PUMA X-Ray 2 Square.jpg", name: "PUMA X-Ray 2 Square", price: "₹3999" },
   { src: "Women Section Images/JodyHub Square Toe Slip-On Ballerinas.jpg", name: "JodyHub Square Toe Slip-On Ballerinas", price: "₹1499" },
   { src: "Women Section Images/ERIDANI Seren Strappy Block Heel Sandal.jpg", name: "ERIDANI Seren Strappy Block Heel Sandal", price: "₹1659" },
-  { src: "Women Section Images/Mochi Women Black Comfort Heels.jpg", name: "Mochi Women Black Comfort Heels", price: "₹1249" },
-  { src: "Women Section Images/Adidas  GAZELLE.jpg", name: "Adidas  GAZELLE", price: "₹7149" },
 ];
 
 const womensectionGrid = document.getElementById("womenSectionGrid");
@@ -529,17 +527,26 @@ window.addEventListener("DOMContentLoaded", womenSectionCard);
 
 //Kids Section JS
 const kidsSectionImages = [
-  { src: "Hero Section images/hero nike.png", name: "NIKE AIR JORDAN 1", price: "₹X,XXX" },
-  { src: "Hero Section images/hero puma.png", name: "PUMA SOFTRIDE ENZO EVO", price: "₹X,XXX" },
-  { src: "Hero Section images/hero adidas.png", name: "ADIDAS SAMBA OG", price: "₹X,XXX" },
-  { src: "Hero Section images/hero campus.png", name: "CAMPUS OG-38", price: "₹X,XXX" },
-  { src: "Hero Section images/hero redtape.png", name: "REDTAPE ETPU LIFESTYLE", price: "₹X,XXX" },
-  { src: "Hero Section images/hero levis.png", name: "LEVI'S COLORBLOCK SNEAKERS", price: "₹X,XXX" }
+  { src: "Kids Section Images/Koburg.jpg", name: "Koburg", price: "₹699" },
+  { src: "Kids Section Images/asian kids.jpg", name: "Asian kids", price: "₹419" },
+  { src: "Kids Section Images/Fame Forever by Lifestyle.jpg", name: "Fame Forever by Lifestyle", price: "₹499" },
+  { src: "Kids Section Images/Shoetophia.jpg", name: "Shoetophia", price: "₹749 " },
+  { src: "Kids Section Images/FEETWELL SHOES.jpg", name: "Feetwelll Shoes", price: "₹549" },
+  { src: "Kids Section Images/BIRDE.jpg", name: "BIRDE", price: "₹459" },
+  { src: "Kids Section Images/Shoetopia Girls.jpg", name: "Shoetopia Girls", price: "₹799" },
+  { src: "Kids Section Images/KazarMax.jpg", name: "KazarMax", price: "₹1099" },
+  { src: "Kids Section Images/Liberty.jpg", name: "Liberty", price: "₹599" },
+  { src: "Kids Section Images/Bride Kids Mid Top.jpg", name: "Bride Kids Mid Top ", price: "₹499" },
+  { src: "Kids Section Images/Crazyly.jpg", name: "Crazyly", price: "₹459" },
+  { src: "Kids Section Images/HOOH.jpg", name: "HOOH", price: "₹499" },
 ];
 
 const kidssectionGrid = document.getElementById("kidsSectionGrid");
 
 function kidsSectionCard() {
+   const container = document.getElementById("kidsSectionGrid");
+  container.innerHTML = "";
+
 
   kidsSectionImages.forEach(item => {
     const card = document.createElement("div");
