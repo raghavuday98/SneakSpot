@@ -414,6 +414,7 @@ function generateArrivalCard() {
   });
 
 }
+
 window.addEventListener("DOMContentLoaded", generateArrivalCard);
 
 // men section
