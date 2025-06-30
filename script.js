@@ -218,13 +218,6 @@ function renderWishlistItems() {
 
 }
 
-function truncateText(selector, maxLength) {
-  document.querySelectorAll(selector).forEach(el => {
-    if (el.textContent.length > maxLength) {
-      el.textContent = el.textContent.slice(0, maxLength - 3) + "...";
-    }
-  });
-}
 
 //home seection
 function showSection(sectionToShow) {
@@ -386,8 +379,6 @@ const newArrivalImages = [
   { src: "New Arrival Images/Bata Formal Oxfords.jpg", name: "Bata Formal Oxfords", price: "₹1277" },
   { src: "New Arrival Images/HRX Men Mesh Running Shoes.jpg", name: "HRX Men Mesh Running Shoes", price: "₹999" },
   { src: "New Arrival Images/Red Tape Men Textured Lace-Up ETPU Walking Shoes.jpg", name: "Red Tape Men ETPU Walking Shoes", price: "₹2519" },
-  { src: "New Arrival Images/asian Men Round Toe Sneakers.jpg", name: "ASIAN Men Round Toe Sneakers", price: "₹899" },
-  { src: "New Arrival Images/Red Tape Men Round Toe Memory Foam.jpg", name: "Red Tape Men Round Toe Memory Foam", price: "₹7199" },
 ];
 
 const newArrivalGrid = document.getElementById("newArrivalGrid");
